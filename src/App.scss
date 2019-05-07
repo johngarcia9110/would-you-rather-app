@@ -1,0 +1,54 @@
+
+$salmon : #FFA384;
+$darksalmon : #d4866b;
+$freesia : #EFE7BC;
+$aqua : #74BDCB;
+$babyBlue : #E7F2F8;
+
+body{
+  background: #ececec;
+}
+
+.disabled{
+  pointer-events: none;
+}
+
+.card{
+  background: white;
+  box-shadow: 0px 8px 23px -33px black;
+  overflow: hidden;
+}
+
+.btn-primary {
+   background: $aqua;
+   color: white;
+   border: 1px solid $aqua;
+   transition: all 200ms ease-in-out;
+   font-weight: bold;
+   font-size: 1.2rem;
+   text-transform: uppercase;
+   &:hover{
+     background: darken($aqua, 10%);
+     border: 1px solid $aqua;
+   }
+ }
+
+.btn-secondary {
+  background: darken($aqua, 10%);
+  color: white;
+  border: 1px solid darken($aqua, 10%);
+  transition: all 200ms ease-in-out;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  &:hover{
+    background: darken($aqua, 20%);
+    border: 1px solid darken($aqua, 10%);
+  }
+}
+
+@import 'sass/login';
+@import 'sass/navigation';
+@import 'sass/questions';
+@import 'sass/leaderboard';
+@import 'sass/newQuestion';

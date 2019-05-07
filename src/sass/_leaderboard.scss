@@ -1,0 +1,32 @@
+.leaderboard{
+  &__user{
+    background: white;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  &__user-profile-tag{
+    background:$aqua;
+    padding: 1rem;
+    img{
+      max-width: 100px;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    h1{
+      font-size: 2rem;
+      color: white;
+      font-weight: bold;
+    }
+  }
+  &__user-info-tag{
+    width: 100%;
+    h2{
+      font-size: 1.6rem;
+    }
+    p{
+      font-weight: bold;
+      font-size: 3rem;
+    }
+  }
+}
