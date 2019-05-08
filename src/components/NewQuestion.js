@@ -28,7 +28,7 @@ class NewQuestion extends Component{
 
     handleSubmitNewQuestion = () => {
         const { dispatch, authedUser } = this.props;
-        const { optionOneText, optionTwoText, errorMessage} = this.state;
+        const { optionOneText, optionTwoText } = this.state;
         if(optionOneText.length < 1 || optionTwoText.length < 1){
             this.setState({
                 errorMessage : "Please input text for both answer fields"

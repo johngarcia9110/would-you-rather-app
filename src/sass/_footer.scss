@@ -1,0 +1,14 @@
+footer{
+  background: white;
+  .bottom-row{
+    background: $salmon;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-bottom: 8px solid #c96643;
+    p{
+      font-weight: bold;
+      color: white;
+      margin-bottom: 0;
+    }
+  }
+}

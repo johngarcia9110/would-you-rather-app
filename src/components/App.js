@@ -9,7 +9,8 @@ import Navigation from './Navigation';
 import Dashboard from './Dashboard';
 import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
-import QuestionResults from "./QuestionResults";
+import QuestionResults from './QuestionResults';
+import Footer from './Footer';
 
 
 class App extends Component{
@@ -26,19 +27,23 @@ class App extends Component{
                             height:'8px'
                         }}
                     />
-                    {this.props.loading === true
-                        ? <Fragment>
-                            <Navigation/>
-                            <Login/>
-                        </Fragment>
-                        : <div>
-                            <Navigation/>
-                        <Route path="/" exact component={Dashboard}/>
-                        <Route path="/add" component={NewQuestion}/>
-                        <Route path="/leaderboard" component={LeaderBoard}/>
-                        <Route path="/questions/:id" component={QuestionResults}></Route>
+                    <div className="page-container">
+                        <header>
+                            <Navigation></Navigation>
+                        </header>
+                        <main>
+                            {this.props.loading === true
+                                ? <Login/>
+                                : <Fragment>
+                                    <Route path="/" exact component={Dashboard}/>
+                                    <Route path="/add" component={NewQuestion}/>
+                                    <Route path="/leaderboard" component={LeaderBoard}/>
+                                    <Route path="/questions/:question_id" component={QuestionResults}></Route>
+                                </Fragment>
+                            }
+                        </main>
+                        <Footer/>
                     </div>
-                    }
                 </Fragment>
             </Router>
 

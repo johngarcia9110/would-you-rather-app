@@ -4,5 +4,24 @@
   .btn{
     border-radius: 0;
     padding: .5rem 3rem;
+    background: $salmon;
+    border-color: $salmon;
+    font-size: 1rem;
+    &:hover{
+      background: darken($salmon, 10%);
+    }
+    &:focus{
+      box-shadow: none;
+      background: darken($salmon, 10%);
+    }
+    &.disabled{
+      color: #ababab;
+      background-color: #ececec;
+      border-color: #ececec;
+      pointer-events: unset;
+      &:hover, &:focus{
+        background: darken(#ececec, 10%);
+      }
+    }
   }
 }

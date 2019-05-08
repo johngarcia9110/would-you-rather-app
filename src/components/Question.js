@@ -23,7 +23,7 @@ class Question extends Component {
                             {questionAuthor && (
                                 <div className="question-card__author">
                                     <p>{questionAuthor ? questionAuthor.name : ""} asks</p>
-                                    <img src={questionAuthor.avatarURL} alt="author profile image"/>
+                                    <img src={questionAuthor.avatarURL} alt="author profile"/>
                                 </div>
                             )}
 
@@ -38,9 +38,6 @@ class Question extends Component {
                         )}
                     </div>
                 </div>
-                {showResults &&(
-                    <Link to={`/`} className="btn btn-back"><i className="fa fa-long-arrow-left"></i> Back To Dashboard</Link>
-                )}
             </Fragment>
         )
     }

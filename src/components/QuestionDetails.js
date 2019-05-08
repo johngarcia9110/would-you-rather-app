@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { handleSaveQuestionAnswer } from "../actions/questions";
 
 class QuestionDetails extends Component  {
@@ -25,11 +25,9 @@ class QuestionDetails extends Component  {
         const {
             optionOneTotal,
             optionTwoTotal,
-            totalVotes,
             optionOnePercentage,
             optionTwoPercentage,
             question,
-            users,
             hasAnswered,
             showResults
         } = this.props;
@@ -65,6 +63,7 @@ class QuestionDetails extends Component  {
                                     <p>{optionOnePercentage}</p>
                                 )}
                             </div>
+                            <p className="text-center total-votes">Total Votes: {optionOneTotal}</p>
                         </div>
                         <p className="text-center answerSeperator">...OR...</p>
                         <div className={hasAnswered === "optionTwo" ? "option option__result selected" : "option option__result"}>
@@ -79,6 +78,7 @@ class QuestionDetails extends Component  {
                                      style={{width: optionTwoPercentage}}
                                 ><span>{optionTwoPercentage}</span></div>
                             </div>
+                            <p className="text-center total-votes">Total Votes: {optionTwoTotal}</p>
                         </div>
                     </Fragment>
                 )}
