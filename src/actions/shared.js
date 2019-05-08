@@ -9,7 +9,7 @@ function getInitialData(){
         .then(([users, questions]) => ({users, questions}))
 }
 //sarahedo
-const AUTHED_ID = 'sarahedo';
+const AUTHED_ID = null;
 
 export function handleInitialData(user =  AUTHED_ID) {
     return (dispatch)=>{

@@ -1,12 +1,39 @@
 .question-card{
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   border-radius: 4px;
+  perspective: 1000px;
+  .controls{
+    position: absolute;
+    right: 2rem;
+    bottom: -10px;
+    a{
+      background: #ffa384;
+      color: white;
+      border: 1px solid #ffa384;
+      transition: all 200ms ease-in-out;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+
+      padding: 1rem 4rem;
+      transform: rotateY(-10deg) scale(.9);
+      &:hover{
+        transform: rotateY(10deg);
+        box-shadow: -10px 0px 21px -17px black;
+      }
+    }
+  }
   &__author-column{
     background: $aqua;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     display: flex;
     justify-content: center;
+    border-radius: 8px;
+    position: relative;
+    top: 0;
+    right: -50px;
+    transform: rotateY(10deg);
   }
   &__author{
     display: flex;
@@ -18,12 +45,38 @@
       margin-bottom: 1rem;
     }
     p{
-      color: white;
-      font-size: 1.6rem;
+      font-size: 1.2rem;
+      background: white;
+      padding: 10px 1rem;
+      color: #467680;
+      font-weight: bold;
+      border-radius: 4px;
+      position: relative;
+      top: -10px;
+      &:after{
+        content: '';
+        position: absolute;
+        bottom: -35px;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        margin-left: -20px;
+        border-style: solid;
+        border-color: white transparent transparent transparent;
+        border-width: 20px 20px 20px 20px;
+      }
     }
   }
   &__question-column{
     position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    top: -10px;
+    left: -20px;
+    box-shadow: -6px 6px 37px -29px black;
+    transform: rotateY(-10deg) scale(.9);
     &:after{
       content: '';
       position: absolute;
@@ -38,19 +91,22 @@
     }
   }
   &__question{
-    height: 100%;
-    padding: 1rem;
+    padding: 3rem 1rem 4rem 1rem;
     text-align: center;
+    width: 100%;
     h3{
       text-align: center;
-      margin-bottom: 1rem;
-      color: darken($aqua, 30%);
+      margin-bottom: 2rem;
+      font-weight: bold;
+      color: $aqua;
     }
     .answerSeperator{
       margin: 0;
       padding: 1rem 0;
       font-size: 1.8rem;
       font-weight: 400;
+      color: $aqua;
+      font-weight: bold;
     }
     .option{
       background: white;
@@ -60,25 +116,52 @@
       p{
         margin: 0;
         font-size: 1.6rem;
+        color: darken($aqua, 30%);
+        padding: 10px;
       }
-      &.selected{
-        border: 4px solid $aqua;
-        &:after{
-          content: 'Your Selection';
-          top: -30px;
-          left: 10px;
-          background: $aqua;
-          padding: 5px 10px;
-          color: white;
-          position: absolute;
-          font-size: .8rem;
-          border-radius: 4px 4px 0 0 ;
+      &__vote{
+        flex-direction: row;
+        justify-content: space-between;
+        background: #ececec;
+        border-radius: 6px;
+        padding-left: 1rem;
+        overflow: hidden;
+        .btn{
+          border-radius: 0px;
         }
       }
+      &__result{
+        background: white;
+        padding: 2rem 1rem;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 4px solid #ececec;
+        p{
+          font-weight: bold;
+          padding: 0;
+          margin-bottom: 1rem;
+        }
+        &.selected{
+          border: 4px solid $freesia;
+          padding-top: 2.5rem;
+           .vote-flag{
+              position: absolute;
+              top: 0;
+              right: 0;
+              font-size: 1rem;
+              background: $freesia;
+              color: darken($freesia, 40%);
+              padding: 5px 10px;
+              border-radius: 0 0 0 10px;
+              display: inline-block;
+            }
+        }
+      }
+
       .votebar{
         width: 100%;
         position: relative;
-        background: $freesia;
+        background: darken(#ececec, 10%);
         height: 40px;
         border-radius: 50px;
         overflow: hidden;
@@ -88,6 +171,12 @@
         text-align: left;
         padding: 0 10px;
         font-weight: bold;
+        box-shadow: inset 0 0px 21px -12px black;
+        p{
+          font-size: 1.2rem;
+          margin-bottom: 0;
+          font-weight: bold;
+        }
         span{
           position: relative;
           z-index: 1;
@@ -97,7 +186,7 @@
           top: 0;
           left: 0;
           height: 100%;
-          background: $aqua;
+          background: #5fc5da;
           z-index: 0;
           text-align: right;
           color: white;
@@ -108,22 +197,6 @@
           padding: 0 10px;
         }
       }
-    }
-  }
-  .controls{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    a{
-      background: $salmon;
-      color: white;
-      border: 1px solid $salmon;
-      transition: all 200ms ease-in-out;
-      font-weight: bold;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      padding: .5rem 2rem;
-      border-radius: 24px 0 0 0;
     }
   }
 }

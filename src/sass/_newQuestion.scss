@@ -1,8 +1,45 @@
+
+
 .new-question-card{
   background: white;
   border-radius: 4px;
   padding: 1rem;
-  button{
+  padding: 2rem 1rem 6rem 1rem;
+  .form-control{
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .error{
+    p{
+      background: $freesia;
+      color: $darksalmon;
+      text-align: center;
+      padding: 10px;
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+  .controls{
     width: 100%;
+    button{
+      border-radius: 0;
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+  h3{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: $aqua;
+  }
+  .answerSeperator{
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: $aqua;
+    font-weight: bold;
   }
 }

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import PageTitle from './PageTitle';
 import { handleAddQuestion } from '../actions/questions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -8,6 +9,7 @@ class NewQuestion extends Component{
     state = {
         optionOneText : '',
         optionTwoText : '',
+        errorMessage : null,
         questionSubmitted : false
     };
 
@@ -26,15 +28,23 @@ class NewQuestion extends Component{
 
     handleSubmitNewQuestion = () => {
         const { dispatch, authedUser } = this.props;
-        dispatch(handleAddQuestion({
-            author : authedUser,
-            optionOneText : this.state.optionOneText,
-            optionTwoText : this.state.optionTwoText
-        })).then(
+        const { optionOneText, optionTwoText, errorMessage} = this.state;
+        if(optionOneText.length < 1 || optionTwoText.length < 1){
             this.setState({
-                questionSubmitted : true
-            })
-        );
+                errorMessage : "Please input text for both answer fields"
+            });
+        }else{
+            dispatch(handleAddQuestion({
+                author : authedUser,
+                optionOneText : this.state.optionOneText,
+                optionTwoText : this.state.optionTwoText
+            })).then(
+                this.setState({
+                    questionSubmitted : true
+                })
+            );
+        }
+
     }
 
     render(){
@@ -42,39 +52,49 @@ class NewQuestion extends Component{
             return <Redirect to='/'/>
         }
         return(
-            <div className="container">
-                <div className="row">
+            <Fragment>
+                <PageTitle>
                     <div className="col-12">
-                        <h1 className="mb-4 text-center">Create A New Question</h1>
-                        <p>{this.state.author}</p>
+                        <h1 className="text-center">Create A New Question</h1>
                     </div>
-                    <div className="col-12">
-                        <div className="new-question-card">
-                            <p className="text-center">Would you rather..</p>
-                            <div className="form-group">
-                                <input
-                                    type="text"
-                                    name="answerOne"
-                                    className="form-control"
-                                    placeholder="Answer One"
-                                    onChange={(e)=>this.handleChange(e,'optionOne')}
-                                />
+                </PageTitle>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-8 offset-2">
+                            <div className="card new-question-card">
+                                <h3 className="text-center">Would you rather..</h3>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        name="answerOne"
+                                        className="form-control"
+                                        placeholder="Answer One"
+                                        onChange={(e)=>this.handleChange(e,'optionOne')}
+                                    />
+                                </div>
+                                <p className="text-center answerSeperator">...OR...</p>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        name="answerTwo"
+                                        className="form-control"
+                                        placeholder="Answer Two"
+                                        onChange={(e)=>this.handleChange(e,'optionTwo')}
+                                    />
+                                </div>
+                                <div className="error">
+                                    { this.state.errorMessage &&(
+                                        <p>{this.state.errorMessage}</p>
+                                    )}
+                                </div>
+                                <div className="controls">
+                                    <button type="button" className="btn" onClick={this.handleSubmitNewQuestion}>Submit</button>
+                                </div>
                             </div>
-                            <p className="text-center">or</p>
-                            <div className="form-group">
-                                <input
-                                    type="text"
-                                    name="answerTwo"
-                                    className="form-control"
-                                    placeholder="Answer Two"
-                                    onChange={(e)=>this.handleChange(e,'optionTwo')}
-                                />
-                            </div>
-                            <button type="button" className="btn btn-primary" onClick={this.handleSubmitNewQuestion}>Submit</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Fragment>
         )
     }
 }

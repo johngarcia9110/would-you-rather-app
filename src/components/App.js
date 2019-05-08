@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import '../App.scss';
+
 import LoadingBar from 'react-redux-loading';
 import { connect } from 'react-redux';
 import { handleInitialData } from "../actions/shared";

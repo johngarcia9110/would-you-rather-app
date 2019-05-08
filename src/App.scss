@@ -4,6 +4,12 @@ $darksalmon : #d4866b;
 $freesia : #EFE7BC;
 $aqua : #74BDCB;
 $babyBlue : #E7F2F8;
+$slateBlue : #4e555b;
+
+*{
+  font-family: "Open Sans";
+  color: darken($aqua, 30%);
+}
 
 body{
   background: #ececec;
@@ -13,10 +19,46 @@ body{
   pointer-events: none;
 }
 
+.page-title{
+  background: white;
+  margin-top: -2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: darken($aqua, 30%);
+  margin-bottom: 3rem;
+  font-weight: bold;
+}
+
 .card{
   background: white;
   box-shadow: 0px 8px 23px -33px black;
   overflow: hidden;
+  border: none;
+  .controls{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    a, button{
+      background: $salmon;
+      color: white;
+      border: 1px solid $salmon;
+      transition: all 200ms ease-in-out;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      padding: 1rem 2rem 1rem 4rem;
+      border-radius: 24px 0 0 0;
+      outline: 0;
+      border: none;
+      box-shadow: none;
+      &:hover, &:active, &:focus{
+        background-color: #c96643!important;
+        outline: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
 }
 
 .btn-primary {
@@ -47,7 +89,20 @@ body{
   }
 }
 
+.btn-back{
+  background: transparent;
+  color: darken($aqua, 20%);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  padding: 0;
+  &:hover{
+    color: darken($aqua, 20%);
+  }
+}
+
 @import 'sass/login';
+@import 'sass/dashboard';
 @import 'sass/navigation';
 @import 'sass/questions';
 @import 'sass/leaderboard';
