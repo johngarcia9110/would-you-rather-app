@@ -164,7 +164,6 @@ export function _saveQuestion (question) {
                     questions: users[authedUser].questions.concat([formattedQuestion.id])
                 }
             }
-            console.log({questions, users});
             res(formattedQuestion)
         }, 1000)
     })

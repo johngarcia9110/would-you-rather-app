@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
 
@@ -19,8 +18,7 @@ class Login extends Component {
         this.setState(()=>({username}));
     }
     render(){
-        console.log('Login Props: ', this.props);
-        const {users, userNames, authedUser} = this.props;
+        const {users, userNames} = this.props;
         return (
             <div className="container">
                 <div className="row">
@@ -32,9 +30,10 @@ class Login extends Component {
                                     name="userSelect"
                                     id="userSelect"
                                     className="form-control"
+                                    defaultValue="Select your username"
                                     onChange={(e)=>this.handleUsernameSelect(e)}
                                 >
-                                    <option value="" disabled selected>Select your username</option>
+                                    <option disabled>Select your username</option>
                                     {
                                         userNames && (
                                             userNames.map((name, index) => (
@@ -58,9 +57,8 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps({users, authedUser}){
+function mapStateToProps({users}){
     return {
-        authedUser,
         users,
         userNames : Object.keys(users)
     }

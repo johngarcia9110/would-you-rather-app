@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class LeaderBoard extends Component{
     render(){
         const { usernames, users } = this.props;
-        console.log(this.props);
         return(
             <Fragment>
                 <PageTitle>

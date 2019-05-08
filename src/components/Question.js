@@ -23,7 +23,7 @@ class Question extends Component {
                             {questionAuthor && (
                                 <div className="question-card__author">
                                     <p>{questionAuthor ? questionAuthor.name : ""} asks</p>
-                                    <img src={questionAuthor.avatarURL} alt="author profile image"/>
+                                    <img src={questionAuthor.avatarURL} alt="author profile"/>
                                 </div>
                             )}
 

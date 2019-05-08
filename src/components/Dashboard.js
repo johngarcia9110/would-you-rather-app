@@ -5,7 +5,7 @@ import Question from './Question';
 
 class Dashboard extends Component {
     state = {
-        questionView : 'answered'
+        questionView : 'unanswered'
     }
     handleViewChange = (questionView) => {
         this.setState({
@@ -13,7 +13,6 @@ class Dashboard extends Component {
         })
     }
     render() {
-        console.log("dashboard props", this.props);
         return (
             <Fragment>
                 <PageTitle>
