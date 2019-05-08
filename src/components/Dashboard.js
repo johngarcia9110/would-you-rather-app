@@ -22,8 +22,8 @@ class Dashboard extends Component {
                             <div className="col-12 d-flex justify-content-between align-items-start">
                                 <h1>{ this.state.questionView === 'answered' ? "Answered Questions" : "Unanswered Questions"}</h1>
                                 <div className="answer-filter">
-                                    <button className={ this.state.questionView === 'answered' ? "btn btn-secondary" : "btn btn-secondary active"} onClick={() => this.handleViewChange('answered')}>Answered</button>
-                                    <button className={ this.state.questionView === 'unanswered' ? "btn btn-secondary" : "btn btn-secondary active"} onClick={() => this.handleViewChange('unanswered')}>Unanswered</button>
+                                    <button className={ this.state.questionView === 'answered' ? "btn btn-secondary" : "btn btn-secondary disabled"} onClick={() => this.handleViewChange('answered')}>Answered</button>
+                                    <button className={ this.state.questionView === 'unanswered' ? "btn btn-secondary" : "btn btn-secondary disabled"} onClick={() => this.handleViewChange('unanswered')}>Unanswered</button>
                                 </div>
                             </div>
                         </div>

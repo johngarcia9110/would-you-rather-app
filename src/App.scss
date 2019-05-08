@@ -10,23 +10,63 @@ $slateBlue : #4e555b;
   font-family: "Open Sans";
   color: darken($aqua, 30%);
 }
-
+html{
+  height: 100%;
+}
 body{
   background: #ececec;
+  height: 100%;
+  #root{
+    min-height: 100%;
+    .page-container{
+      min-height: 100vh;
+      padding-bottom: 12rem;
+      position: relative;
+      footer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        .top-row{
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+main{
+  height: 100%;
 }
 
 .disabled{
   pointer-events: none;
 }
 
+.logo{
+  font-weight: bold;
+  &--dark{
+    color: $salmon;
+  }
+  &--light{
+    color: white;
+  }
+}
+
 .page-title{
-  background: white;
   margin-top: -2rem;
+  background: white;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  color: darken($aqua, 30%);
+  color: #5b9ba7;
   margin-bottom: 3rem;
-  font-weight: bold;
+  h1{
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
 }
 
 .card{
@@ -91,13 +131,18 @@ body{
 
 .btn-back{
   background: transparent;
-  color: darken($aqua, 20%);
+  color: #bdbdbd;
   font-weight: 600;
   margin-bottom: 1rem;
   font-size: 1.4rem;
   padding: 0;
+  position: absolute;
+  left: 0;
+  i{
+    color: #bdbdbd;
+  }
   &:hover{
-    color: darken($aqua, 20%);
+    color: darken(#bdbdbd, 20%);
   }
 }
 
@@ -107,3 +152,4 @@ body{
 @import 'sass/questions';
 @import 'sass/leaderboard';
 @import 'sass/newQuestion';
+@import 'sass/footer';

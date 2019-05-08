@@ -38,9 +38,6 @@ class Question extends Component {
                         )}
                     </div>
                 </div>
-                {showResults &&(
-                    <Link to={`/`} className="btn btn-back"><i className="fa fa-long-arrow-left"></i> Back To Dashboard</Link>
-                )}
             </Fragment>
         )
     }

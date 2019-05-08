@@ -1,10 +1,18 @@
 .login-card{
   background: white;
   border-radius: 4px;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem 6rem 1rem;
   text-align: center;
   margin-top: 4rem;
   h1{
-    color: $aqua;
+    color: #5b9ba7;
+    margin-bottom: 2rem;
+  }
+  .controls{
+    width: 100%;
+    button{
+      width: 100%;
+      border-radius: 0;
+    }
   }
 }

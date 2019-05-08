@@ -44,7 +44,7 @@ class Login extends Component {
                                     }
                                 </select>
                             </div>
-                            <div className="form-group">
+                            <div className="controls">
                                 <button type="button" onClick={(e) => this.handleSignIn(e)}
                                         className={this.state.username !== '' ? "btn btn-secondary" : "btn btn-secondary disabled"}
                                             >Sign In
