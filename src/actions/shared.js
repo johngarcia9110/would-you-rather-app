@@ -8,10 +8,8 @@ function getInitialData(){
     return Promise.all([_getUsers(), _getQuestions()])
         .then(([users, questions]) => ({users, questions}))
 }
-//sarahedo
-const AUTHED_ID = 'sarahedo';
 
-export function handleInitialData(user =  AUTHED_ID) {
+export function handleInitialData(user =  null) {
     return (dispatch)=>{
         dispatch(showLoading());
         return getInitialData()
